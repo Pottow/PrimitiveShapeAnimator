@@ -7,24 +7,28 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour
 {
-    [System.NonSerialized]
-    public bool cameraMoveToggle = true;
-    Camera mainCamera;
+    
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private float verticalCamSpeed;
+    [SerializeField] private float horizontalCamSpeed;
+    [SerializeField] private float rotationAlongX;
+    [SerializeField] private float rotationAlongY;
+    [SerializeField] private float sensitivity;
+    [SerializeField] private GameObject objectController;
+    bool cameraMoveToggle;
+    HUDObjectCreation hudObjectCreation;
+    ObjectSelection objectSelection;
     Vector3 currentCamPosition;
-    float verticalCamSpeed = 4f;
-    float horizontalCamSpeed = 5f;
-
     float currentCamRotationX;
     float currentCamRotationY;
-    float rotationAlongX = 0.0f;
-    float rotationAlongY = 0.0f;
-    float sensitivity = 500f;
     float mousePosX;
     float mousePosY;
 
     //assign the main camera
-    private void Start() {
+    private void Awake() {
     mainCamera = Camera.main;
+    hudObjectCreation = objectController.GetComponent<HUDObjectCreation>();
+    objectSelection = objectController.GetComponent<ObjectSelection>();
     }
 
     //move the camera upwards
@@ -90,8 +94,8 @@ public class CameraMovement : MonoBehaviour
 
     //toggles between camera WASD movement and object WASD
     public void CameraMoveToggle(){
-        if (GetComponent<ObjectCreation>().createdObjectList?.Any() ?? false){
-           if (GetComponent<ObjectSelection>().isSelectedObject == true){
+        if (hudObjectCreation.getCreatedObjectList()?.Any() ?? false){
+           if (objectSelection.isSelectedObject == true){
                 cameraMoveToggle = !cameraMoveToggle;
            }
         }
@@ -99,7 +103,7 @@ public class CameraMovement : MonoBehaviour
 
     //turns camera WASD movement to object WASD
     public void CameraMoveOff(){
-        if (GetComponent<ObjectCreation>().createdObjectList?.Any() ?? false){
+        if (hudObjectCreation.getCreatedObjectList()?.Any() ?? false){
             cameraMoveToggle = false;
         }
     }
@@ -108,4 +112,9 @@ public class CameraMovement : MonoBehaviour
      public void CameraMoveOn(){
             cameraMoveToggle = true;
     }
+
+    public bool getCameraMoveToggle(){
+        return cameraMoveToggle;
+    }
+
 }

@@ -5,40 +5,46 @@ using UnityEngine.EventSystems;
 
 public class ObjectRotation : MonoBehaviour
 {
-     [System.NonSerialized]
-    public bool toggleRotation;
-     [System.NonSerialized]
-    public GameObject mainObjectRotation;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] GameObject objectController;
+    [SerializeField] GameObject cameraController;
+    ObjectSelection objectSelection;
+    CameraMovement cameraMovement;
+    GameObject mainObjectRotation;
     Quaternion currentObjRotation;
     float rotationSpeed = 100;
     float currentForwardRotation;
-    Camera mainCamera;
+    public bool toggleRotation;
+    
+    
     
     //assign the main camera
-    private void Start() {
+    private void Awake() {
         mainCamera = Camera.main;
+        objectSelection = objectController.GetComponent<ObjectSelection>();
+        cameraMovement = cameraController.GetComponent<CameraMovement>();
     }
 
     //toggles object rotation mode
     public void ToggleRotation(){
-        if (GetComponent<ObjectSelection>().isSelectedObject == true){
+        if (objectSelection.isSelectedObject == true){
                 toggleRotation = !toggleRotation;
                 if (toggleRotation == true){
-                    GetComponent<CameraMovement>().CameraMoveOff();
+                    cameraMovement.CameraMoveOff();
                 }
         } 
     }
 
    //turns off object rotation mode
     public void ToggleRotationOff(){
-        if (GetComponent<ObjectSelection>().isSelectedObject == true){
+        if (objectSelection.isSelectedObject == true){
                 toggleRotation = false;
         } 
     }
 
     //turns on object rotation mode
     public void ToggleRotationOn(){
-        if (GetComponent<ObjectSelection>().isSelectedObject == true){
+        if (objectSelection.isSelectedObject == true){
                 toggleRotation = true;
         } 
     }
@@ -91,5 +97,10 @@ public class ObjectRotation : MonoBehaviour
         currentObjRotation = mainObjectRotation.transform.rotation;
         mainObjectRotation.transform.rotation = 
             Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, -mainCamera.transform.right) * currentObjRotation;
+    }
+
+
+    public GameObject setMainObjectRotation(GameObject mainObject){
+        return mainObjectRotation = mainObject;
     }
 }

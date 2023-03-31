@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class ObjectDeletion : MonoBehaviour
 {
+    private GameObject mainObjectDeletion;
+    [SerializeField] GameObject objectController;
+    ObjectSelection objectSelection;
+    HUDObjectCreation hudObjectCreation;
+
+    public void Awake(){
+        objectSelection = objectController.GetComponent<ObjectSelection>();
+        hudObjectCreation = objectController.GetComponent<HUDObjectCreation>();
+    }
+
+
     //removes the selected object
     public void DeleteObject(){
-        if (GetComponent<ObjectSelection>().isSelectedObject == true){
+        if (objectSelection.isSelectedObject == true){
            
-            GetComponent<ObjectCreation>().createdObjectList.RemoveAll
-            (GameObject => GameObject.name == GetComponent<ObjectSelection>().selectedObject.name);
+            hudObjectCreation.getCreatedObjectList().RemoveAll 
+                (GameObject => GameObject.name == objectSelection.selectedObject.name);
 
-            GetComponent<ObjectSelection>().DeselectObject();
-            Destroy(GetComponent<ObjectSelection>().selectedObject);
+            objectSelection.DeselectObject();
+            Destroy(objectSelection.selectedObject);
             
 
         }
     }
+
+public void setMainObjectDeletion(GameObject mainObject){
+    mainObjectDeletion = mainObject;
+}
+
 }

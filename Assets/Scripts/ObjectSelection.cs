@@ -5,20 +5,30 @@ using UnityEngine.EventSystems;
 
 public class ObjectSelection : MonoBehaviour
 {
-     [System.NonSerialized]
+    
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject objectController;
+    [SerializeField] private GameObject cameraController;
+    [SerializeField] private GameObject HUDController;
+    private ObjectMovement objectMovement;
+    private ObjectRotation objectRotation;
+    private CameraMovement cameraMovement;
+    private HUDObjectModification hudObjectModification;
+
     public GameObject selectedObject;
-     [System.NonSerialized]
     public GameObject previousSelectedObject;
-    [System.NonSerialized]
     public bool isSelectedObject = false;
     RaycastHit hit;
     Ray rayOrigin;
-    Camera mainCamera;
     GameObject objectClicked;
     
     //assign the main camera
-    private void Start() {
+    private void Awake() {
         mainCamera = Camera.main;
+        objectMovement = objectController.GetComponent<ObjectMovement>();
+        objectRotation = objectController.GetComponent<ObjectRotation>();
+        cameraMovement = cameraController.GetComponent<CameraMovement>();
+        hudObjectModification = HUDController.GetComponent<HUDObjectModification>();
     }
     
     //on click, check whether an object, the gui, or the void has been clicked and respond
@@ -45,10 +55,10 @@ public class ObjectSelection : MonoBehaviour
     public void SelectObject(GameObject objSelectedOrCreated){
         selectedObject = objSelectedOrCreated;
         HighlightSelectedObject(selectedObject);
-        GetComponent<ObjectMovement>().mainObject = selectedObject;
-        GetComponent<ObjectRotation>().mainObjectRotation = selectedObject;
-        GetComponent<CameraMovement>().CameraMoveOff();
-        GetComponent<ObjectModification>().ShowModifiers();
+        objectMovement.setMainObjectMovement(selectedObject);
+        objectRotation.setMainObjectRotation(selectedObject);
+        cameraMovement.CameraMoveOff();
+        hudObjectModification.ShowModifiers();
         isSelectedObject = true;
 
         previousSelectedObject = selectedObject;
@@ -72,8 +82,7 @@ public class ObjectSelection : MonoBehaviour
     //deselect all objects and switch back to camera view
     public void DeselectObject(){
         DeselectObjectForReselection();
-        GetComponent<ObjectModification>().HideModifiers();
-        GetComponent<CameraMovement>().CameraMoveOn();
-
+        hudObjectModification.HideModifiers();
+        cameraMovement.CameraMoveOn();
     }
 }

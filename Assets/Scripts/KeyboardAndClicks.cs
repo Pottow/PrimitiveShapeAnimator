@@ -4,95 +4,111 @@ using UnityEngine;
 
 public class KeyboardAndClicks : MonoBehaviour
 {
+    [SerializeField] private GameObject cameraController;
+    [SerializeField] private GameObject objectController;
+    private CameraMovement cameraMovement;
+    private ObjectRotation objectRotation;
+    private ObjectMovement objectMovement;
+    private ObjectSelection objectSelection;
+    private ObjectDeletion objectDeletion;
+
+
+    private void Awake() {
+        cameraMovement = cameraController.GetComponent<CameraMovement>();
+        objectRotation = objectController.GetComponent<ObjectRotation>();
+        objectMovement = objectController.GetComponent<ObjectMovement>();
+        objectSelection = objectController.GetComponent<ObjectSelection>();
+        objectDeletion = objectController.GetComponent<ObjectDeletion>();
+    }
   
   //listens for keyboard presses and mouse clicks, for user input controls
     void Update()
     {
     //keyboard movement controls
         //camera keyboard movement controls
-        if (GetComponent<CameraMovement>().cameraMoveToggle == true){
+        if (cameraMovement.getCameraMoveToggle() == true){
 
             if (Input.GetKey(KeyCode.E))
             {
-                GetComponent<CameraMovement>().MoveUp();
+                cameraMovement.MoveUp();
             }
             if (Input.GetKey(KeyCode.Q))
             {
-                GetComponent<CameraMovement>().MoveDown();
+                cameraMovement.MoveDown();
             }
             if (Input.GetKey(KeyCode.W))
             {
-                GetComponent<CameraMovement>().MoveForward();
+                cameraMovement.MoveForward();
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                GetComponent<CameraMovement>().MoveLeft();
+                cameraMovement.MoveLeft();
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                GetComponent<CameraMovement>().MoveBackward();
+                cameraMovement.MoveBackward();
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                GetComponent<CameraMovement>().MoveRight();
+                cameraMovement.MoveRight();
             }
         }
        //object keyboard rotation controls
         else{
-            if(GetComponent<ObjectRotation>().toggleRotation){ 
+            if(objectRotation.toggleRotation){ 
                 if (Input.GetKey(KeyCode.E))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundUpAxis();
+                    objectRotation.RotateAroundUpAxis();
                 }
                 if (Input.GetKey(KeyCode.Q))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundDownAxis();
+                    objectRotation.RotateAroundDownAxis();
                 }
                 if (Input.GetKey(KeyCode.W))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundForwardAxis();
+                    objectRotation.RotateAroundForwardAxis();
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundLeftAxis();
+                    objectRotation.RotateAroundLeftAxis();
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundBackwardAxis();
+                    objectRotation.RotateAroundBackwardAxis();
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    GetComponent<ObjectRotation>().RotateAroundRightAxis();
+                    objectRotation.RotateAroundRightAxis();
                 }
             }
             //object keyboard movemement controls
             else{
                 if (Input.GetKey(KeyCode.E))
                 {
-                    GetComponent<ObjectMovement>().MoveUp();
+                    objectMovement.MoveUp();
                 }
                 if (Input.GetKey(KeyCode.Q))
                 {
-                    GetComponent<ObjectMovement>().MoveDown();
+                    objectMovement.MoveDown();
                 }
                 if (Input.GetKey(KeyCode.W))
                 {
-                    GetComponent<ObjectMovement>().MoveForward();
+                    objectMovement.MoveForward();
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    GetComponent<ObjectMovement>().MoveLeft();
+                    objectMovement.MoveLeft();
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    GetComponent<ObjectMovement>().MoveBackward();
+                    objectMovement.MoveBackward();
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    GetComponent<ObjectMovement>().MoveRight();
+                    objectMovement.MoveRight();
                 }
             }
         }
@@ -100,33 +116,33 @@ public class KeyboardAndClicks : MonoBehaviour
         //keyboard object manipulation controls
            if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<ObjectSelection>().DeselectObject();
+            objectSelection.DeselectObject();
         }
            if (Input.GetKeyDown(KeyCode.Delete))
         {
-            GetComponent<ObjectDeletion>().DeleteObject();
+            objectDeletion.DeleteObject();
         }
           if (Input.GetKeyDown(KeyCode.R))
         {
-            GetComponent<ObjectRotation>().ToggleRotation();
+            objectRotation.ToggleRotation();
         }
 
 
         //mouse object manipulation controls
         if (Input.GetMouseButtonDown(0)){
-            GetComponent<ObjectSelection>().ClickObject();
+            objectSelection.ClickObject();
         }
 
 
         //camera manipulation controls
           if (Input.GetKeyDown(KeyCode.C))
         {
-            GetComponent<CameraMovement>().CameraMoveToggle();
+            cameraMovement.CameraMoveToggle();
         }
 
         //mouse camera manipulation controls
         if (Input.GetMouseButton(1)){
-            GetComponent<CameraMovement>().Rotate();
+            cameraMovement.Rotate();
         }
         if (Input.GetMouseButtonUp(1)){
             Cursor.visible = true;

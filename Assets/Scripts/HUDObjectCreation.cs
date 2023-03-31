@@ -4,24 +4,30 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class ObjectCreation : MonoBehaviour
+public class HUDObjectCreation : MonoBehaviour
 {
-    GameObject shapeChoice;
-    string objectType;
+    [SerializeField] GameObject shapeChoice;
+    [SerializeField] GameObject cameraController;
+    [SerializeField] GameObject objectController;
+    ObjectSelection objectSelection;
+    CameraMovement cameraMovement;
+    TMP_Dropdown tmp_Dropdown;
     GameObject createdObject;
-    [System.NonSerialized]
-    public List<GameObject> createdObjectList = new List<GameObject>();
+    string objectType;
+    private List<GameObject> createdObjectList = new List<GameObject>();
     int createdObjectID;
 
-    //finds the dropdown box containing the choice of shapes
-    private void Start() {
-        shapeChoice = GameObject.Find("ShapeChoiceBox");
+    private void Awake() {
+        tmp_Dropdown = shapeChoice.GetComponent<TMP_Dropdown>();
+        objectSelection = objectController.GetComponent<ObjectSelection>();
+        cameraMovement = cameraController.GetComponent<CameraMovement>();
+        
     }
 
     //creates a shape, instantiates it into the environment, and selects it
     public void CreateObject(){
-        objectType = shapeChoice.GetComponent<TMP_Dropdown>().options 
-                    [shapeChoice.GetComponent<TMP_Dropdown>().value].text;
+        objectType = tmp_Dropdown.options 
+                    [tmp_Dropdown.value].text;
         switch (objectType){
             case "Cube":
                 createdObject = CreateCube();
@@ -48,9 +54,9 @@ public class ObjectCreation : MonoBehaviour
         createdObjectList.Add(createdObject);
         createdObjectID = createdObjectList.IndexOf(createdObjectList [^1]);
         createdObject.name = "Object" + createdObjectID;
-        GetComponent<ObjectSelection>().DeselectObjectForReselection();
-        GetComponent<ObjectSelection>().SelectObject(createdObject);
-        GetComponent<CameraMovement>().CameraMoveOff();
+        objectSelection.DeselectObjectForReselection();
+        objectSelection.SelectObject(createdObject);
+        cameraMovement.CameraMoveOff();
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -88,4 +94,8 @@ public class ObjectCreation : MonoBehaviour
         return quad;
     }
 
+
+    public List<GameObject> getCreatedObjectList(){
+        return createdObjectList;
+    }
 }

@@ -410,7 +410,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -1282,13 +1282,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 1560267319}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 947957665}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 947957667}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -2757,7 +2757,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -2775,7 +2775,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -3376,7 +3376,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -3639,6 +3639,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491302619}
   m_CullTransparentMesh: 1
+--- !u!1 &520928817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520928818}
+  m_Layer: 0
+  m_Name: Controllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520928818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520928817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.126863, y: 19.448269, z: 85.70626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 764097642}
+  - {fileID: 1460467088}
+  - {fileID: 1560267317}
+  - {fileID: 2074665901}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552713466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,7 +3892,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -4243,7 +4278,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -4261,7 +4296,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -4276,7 +4311,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -4875,7 +4910,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -4893,7 +4928,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -4908,7 +4943,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -5313,6 +5348,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711348952}
   m_CullTransparentMesh: 1
+--- !u!1 &764097641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764097642}
+  - component: {fileID: 764097644}
+  - component: {fileID: 764097643}
+  m_Layer: 0
+  m_Name: InputController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764097642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764097641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520928818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764097643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764097641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba3227aa1567354da9ec40447d80bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveMode: Camera
+  previousMoveMode: Camera
+  cameraController: {fileID: 1460467087}
+  objectController: {fileID: 2074665900}
+  moveModeType: {fileID: 1166844494}
+--- !u!114 &764097644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764097641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6962475a4383142a4713915d31940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraController: {fileID: 1460467087}
+  objectController: {fileID: 2074665900}
 --- !u!1 &797461931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,7 +5495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -5945,7 +6044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -5995,154 +6094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835255220}
   m_CullTransparentMesh: 1
---- !u!1 &844178552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 844178553}
-  - component: {fileID: 844178555}
-  - component: {fileID: 844178554}
-  - component: {fileID: 844178556}
-  - component: {fileID: 844178557}
-  - component: {fileID: 844178558}
-  - component: {fileID: 844178559}
-  - component: {fileID: 844178560}
-  - component: {fileID: 844178561}
-  - component: {fileID: 844178562}
-  m_Layer: 0
-  m_Name: PrimaryController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &844178553
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9691706, y: -3.9694965, z: -10.290511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &844178554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deddb52ce9fbf1e48b26952a8547a0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6962475a4383142a4713915d31940a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726d8f3aa97e8354a9974b43967aec65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a796dfd4f85282a48b9ffc5d38384239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6835b67edf031e44c9e7e7e8eb056161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbcf7c080a128c46a2bf3c097a1a943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87cc4dd3d36cc5458da6bc976b5018a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba3227aa1567354da9ec40447d80bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &844178562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844178552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b7f4d9ee038c3409d571dc6eba920b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &885982557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6507,7 +6458,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -6525,7 +6476,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -6540,7 +6491,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -6693,13 +6644,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024024836
 GameObject:
@@ -7054,7 +7005,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -7362,7 +7313,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -7380,7 +7331,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -7395,7 +7346,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -7690,7 +7641,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -7958,7 +7909,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -8110,7 +8061,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -8128,7 +8079,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -8143,7 +8094,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -13115,7 +13066,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -13578,7 +13529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -13757,6 +13708,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1460467087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460467088}
+  - component: {fileID: 1460467089}
+  m_Layer: 0
+  m_Name: CameraController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460467088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460467087}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520928818}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460467089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460467087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deddb52ce9fbf1e48b26952a8547a0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMoveToggle: 1
+  mainCamera: {fileID: 963194227}
+  verticalCamSpeed: 4
+  horizontalCamSpeed: 5
+  rotationAlongX: 0
+  rotationAlongY: 0
+  sensitivity: 500
+  objectController: {fileID: 2074665900}
 --- !u!1 &1494239204
 GameObject:
   m_ObjectHideFlags: 0
@@ -14112,7 +14115,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -14246,7 +14249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178557}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectManipulation, Assembly-CSharp
         m_MethodName: CreateObject
         m_Mode: 1
@@ -14405,6 +14408,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552399136}
   m_CullTransparentMesh: 1
+--- !u!1 &1560267316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560267317}
+  - component: {fileID: 1560267319}
+  - component: {fileID: 1560267318}
+  m_Layer: 0
+  m_Name: HUDController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1560267317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560267316}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520928818}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560267318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560267316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a796dfd4f85282a48b9ffc5d38384239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeChoice: {fileID: 711348952}
+  cameraController: {fileID: 1460467087}
+  objectController: {fileID: 2074665900}
+  createdObjectList: []
+--- !u!114 &1560267319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560267316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b7f4d9ee038c3409d571dc6eba920b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 2074665900}
+  shapeModifiers: {fileID: 250365960}
+  xPos: {fileID: 947957665}
+  yPos: {fileID: 1948984311}
+  zPos: {fileID: 329646437}
+  xRot: {fileID: 1188243494}
+  yRot: {fileID: 21661904}
+  zRot: {fileID: 603030149}
+  xScale: {fileID: 117153059}
+  yScale: {fileID: 689253623}
+  zScale: {fileID: 1107081497}
 --- !u!1 &1594823220
 GameObject:
   m_ObjectHideFlags: 0
@@ -14594,7 +14669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -15767,7 +15842,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -16059,7 +16134,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178561}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MoveModeSettings, Assembly-CSharp
         m_MethodName: EditMoveMode
         m_Mode: 1
@@ -16470,7 +16545,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2
@@ -16622,7 +16697,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: updateUserModifications
         m_Mode: 1
@@ -16640,7 +16715,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userModifying
         m_Mode: 1
@@ -16655,7 +16730,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: userStoppedModifying
         m_Mode: 1
@@ -17422,7 +17497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: IncrementModifier
         m_Mode: 2
@@ -18397,6 +18472,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062698536}
   m_CullTransparentMesh: 1
+--- !u!1 &2074665900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074665901}
+  - component: {fileID: 2074665906}
+  - component: {fileID: 2074665904}
+  - component: {fileID: 2074665903}
+  - component: {fileID: 2074665902}
+  m_Layer: 0
+  m_Name: ObjectController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2074665901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520928818}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2074665902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6835b67edf031e44c9e7e7e8eb056161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194227}
+  objectController: {fileID: 2074665900}
+  cameraController: {fileID: 1460467087}
+  HUDController: {fileID: 1560267316}
+  selectedObject: {fileID: 0}
+  previousSelectedObject: {fileID: 0}
+  isSelectedObject: 0
+--- !u!114 &2074665903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87cc4dd3d36cc5458da6bc976b5018a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194227}
+  objectController: {fileID: 2074665900}
+  cameraController: {fileID: 1460467087}
+  mainObjectRotation: {fileID: 0}
+  toggleRotation: 0
+--- !u!114 &2074665904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726d8f3aa97e8354a9974b43967aec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainObjectMovement: {fileID: 0}
+  mainCamera: {fileID: 963194227}
+--- !u!114 &2074665906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbcf7c080a128c46a2bf3c097a1a943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 2074665900}
 --- !u!1 &2099222880
 GameObject:
   m_ObjectHideFlags: 0
@@ -18480,7 +18653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 844178562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ObjectModification, Assembly-CSharp
         m_MethodName: DecrementModifier
         m_Mode: 2

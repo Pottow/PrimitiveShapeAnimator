@@ -5,21 +5,31 @@ using UnityEngine;
 
 public class MoveModeSettings : MonoBehaviour
 {
-    string moveMode = "Camera";
-    string previousMoveMode = "Camera";
-    GameObject moveModeType;
+    [SerializeField] string moveMode;
+    [SerializeField] string previousMoveMode;
+    [SerializeField] private GameObject cameraController;
+    [SerializeField] private GameObject objectController;
+    [SerializeField] private GameObject moveModeType;
 
-    private void Start() {
-        moveModeType = GameObject.Find("MoveModeType");
+    private CameraMovement cameraMovement;
+    private ObjectRotation objectRotation;
+    private TextMeshProUGUI textMeshProUGUI;
+    
+
+    private void Awake() {
+        cameraMovement = cameraController.GetComponent<CameraMovement>();
+        objectRotation = objectController.GetComponent<ObjectRotation>();
+        textMeshProUGUI = moveModeType.GetComponent<TextMeshProUGUI>();
     }
 
     //checks which move mode is currently active
     public void Update(){
-        if (GetComponent<CameraMovement>().cameraMoveToggle == true){
+        //gotta add switch rather than if/else
+        if (cameraMovement.getCameraMoveToggle() == true){
             moveMode = "Camera";
         }
         else{
-            if (GetComponent<ObjectRotation>().toggleRotation == true){
+            if (objectRotation.toggleRotation == true){
                 moveMode = "Rotate Object";
             }
             else{
@@ -33,6 +43,6 @@ public class MoveModeSettings : MonoBehaviour
     }
     //displays move mode to user
     public void DisplayMoveMode(string moveMode){
-        moveModeType.GetComponent<TextMeshProUGUI>().text = moveMode;
+        textMeshProUGUI.text = moveMode;
     }
 }
