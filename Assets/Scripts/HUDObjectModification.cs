@@ -62,10 +62,15 @@ public class HUDObjectModification : MonoBehaviour
     float xScaleFloat;
     float yScaleFloat;
     float zScaleFloat;
+
+    float [] posFloats;
+    float [] rotFloats;
+    float [] sclaeFloats;
+
     Vector3 mainObjectModificationPos;
     Quaternion mainObjectModificationRot;
     Vector3 mainObjectModificationScale;
-    bool isUserMakingModifications;
+    public bool isUserMakingModifications;
 
     // locates shape modifying input fields and the shape modifying tab
     private void Awake()
@@ -133,85 +138,99 @@ public class HUDObjectModification : MonoBehaviour
         shapeModifiers.SetActive(false);
     }
 
-    //update input fields to match selected object's current rotation
-    private void Update() {
+    public void UpdateOnObjectMove(KeyCode keypressed){
         if (mainObjectModification != null && isUserMakingModifications == false){
 
-            xPosTMP_InputField.text = mainObjectModification.transform.position.x.ToString();
-            yPosTMP_InputField.text = mainObjectModification.transform.position.y.ToString();
-            zPosTMP_InputField.text = mainObjectModification.transform.position.z.ToString();
-
-            if (mainObjectModification.transform.localEulerAngles.y >= 180 
-                && mainObjectModification.transform.localEulerAngles.z >= 180
-                && mainObjectModification.transform.localEulerAngles.x <= 90){
-                    xRotTMP_InputField.text = 
-                        (-1 * mainObjectModification.transform.localEulerAngles.x + 180).ToString();
-                }
-            else if (mainObjectModification.transform.localEulerAngles.y < 180 
-                && mainObjectModification.transform.localEulerAngles.z < 180
-                && mainObjectModification.transform.localEulerAngles.x < 90){
-                    xRotTMP_InputField.text = 
-                        (mainObjectModification.transform.localEulerAngles.x).ToString();
-                }
-            else if (mainObjectModification.transform.localEulerAngles.y >= 180 
-            && mainObjectModification.transform.localEulerAngles.z >= 180
-            && mainObjectModification.transform.localEulerAngles.x > 270){
-                xRotTMP_InputField.text = 
-                    (-1 * mainObjectModification.transform.localEulerAngles.x + 540).ToString();
-            }  
-            else 
-            {
-                xRotTMP_InputField.text = 
-                    (mainObjectModification.transform.localEulerAngles.x).ToString();
+            if (keypressed == KeyCode.A || keypressed == KeyCode.D){
+                xPos.GetComponent<TMP_InputField>().text = mainObjectModification.transform.position.x.ToString();
+                CleanXRotationForUpdateOnObjectMove();
+                xScaleTMP_InputField.text = mainObjectModification.transform.localScale.x.ToString();
             }
-            
 
-            yRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.y.ToString();
-            zRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.z.ToString();
+            if (keypressed == KeyCode.Q || keypressed == KeyCode.E){
+                yPosTMP_InputField.text = mainObjectModification.transform.position.y.ToString();
+                yRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.y.ToString();
+                yScaleTMP_InputField.text = mainObjectModification.transform.localScale.y.ToString();
+            }
+
+            if (keypressed == KeyCode.W || keypressed == KeyCode.S){
+                zPosTMP_InputField.text = mainObjectModification.transform.position.z.ToString();
+                zRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.z.ToString();
+                zScaleTMP_InputField.text = mainObjectModification.transform.localScale.z.ToString();
+            }
+        }
+    }
+
+    public void UpdateOnObjectMove(){
+        if (mainObjectModification != null && isUserMakingModifications == false){
+
+            xPosTMP_InputField.text= mainObjectModification.transform.position.x.ToString();
+            CleanXRotationForUpdateOnObjectMove();
             xScaleTMP_InputField.text = mainObjectModification.transform.localScale.x.ToString();
+
+            yPosTMP_InputField.text = mainObjectModification.transform.position.y.ToString();
+            yRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.y.ToString();
             yScaleTMP_InputField.text = mainObjectModification.transform.localScale.y.ToString();
+
+            zPosTMP_InputField.text = mainObjectModification.transform.position.z.ToString();
+            zRotTMP_InputField.text = mainObjectModification.transform.localEulerAngles.z.ToString();
             zScaleTMP_InputField.text = mainObjectModification.transform.localScale.z.ToString();
         }
     }
 
+    public void CleanXRotationForUpdateOnObjectMove(){
+        if (mainObjectModification.transform.localEulerAngles.y >= 180 
+            && mainObjectModification.transform.localEulerAngles.z >= 180
+            && mainObjectModification.transform.localEulerAngles.x <= 90){
+                xRotTMP_InputField.text = 
+                    (-1 * mainObjectModification.transform.localEulerAngles.x + 180).ToString();
+            }
+        else if (mainObjectModification.transform.localEulerAngles.y < 180 
+            && mainObjectModification.transform.localEulerAngles.z < 180
+            && mainObjectModification.transform.localEulerAngles.x < 90){
+                xRotTMP_InputField.text = 
+                    (mainObjectModification.transform.localEulerAngles.x).ToString();
+            }
+        else if (mainObjectModification.transform.localEulerAngles.y >= 180 
+        && mainObjectModification.transform.localEulerAngles.z >= 180
+        && mainObjectModification.transform.localEulerAngles.x > 270){
+            xRotTMP_InputField.text = 
+                (-1 * mainObjectModification.transform.localEulerAngles.x + 540).ToString();
+        }  
+        else 
+        {
+            xRotTMP_InputField.text = 
+                (mainObjectModification.transform.localEulerAngles.x).ToString();
+        }
+    }
+
     //stops input fields from updating while user is modifying shape
-    public void userModifying(){
+    public void UserModifying(){
         isUserMakingModifications = true;
     }
 
     //modifies selected shape according to values input by user into input fields
-    public void updateUserModifications(){
-        foreach(var zip in shapeModifiersString.Zip(tmp_InputFields, (x,y) => x = y.text)){}
+    public void UpdateUserModifications(){
+        if (isUserMakingModifications == true){
+            for( int i = 0; i < tmp_InputFields.Length; i++){
+                shapeModifiersString [i] = tmp_InputFields [i].text;
+            }
 
-        // xPosText = xPosTMP_InputField.text;
-        // yPosText = yPosTMP_InputField.text;
-        // zPosText = zPosTMP_InputField.text;
-        // xRotText = xRotTMP_InputField.text;
-        // yRotText = yRotTMP_InputField.text;
-        // zRotText = zRotTMP_InputField.text;
-        // xScaleText = xScaleTMP_InputField.text;
-        // yScaleText = yScaleTMP_InputField.text; 
-        // zScaleText = zScaleTMP_InputField.text;
+            for( int j = 0; j < shapeModifiersFloat.Length; j ++){
+                shapeModifiersFloat [j] = TestForBadInput (shapeModifiersString[j]);
+            } 
 
-        foreach(var zip in shapeModifiersFloat.Zip(shapeModifiersString, (x,y) => x = TestForBadInput(y)))   
-
-        // xPosFloat = TestForBadInput(xPosText, false);
-        // yPosFloat = TestForBadInput(yPosText, false);
-        // zPosFloat = TestForBadInput(zPosText, false);
-        // xRotFloat = TestForBadInput(xRotText, false);
-        // yRotFloat = TestForBadInput(yRotText, false);
-        // zRotFloat = TestForBadInput(zRotText, false);
-        // xScaleFloat = TestForBadInput(xScaleText, true);
-        // yScaleFloat = TestForBadInput(yScaleText, true);
-        // zScaleFloat = TestForBadInput(zScaleText, true);
-            
-        mainObjectModification.transform.position = new Vector3 (xPosFloat, yPosFloat, zPosFloat);
-        mainObjectModification.transform.rotation = Quaternion.Euler (xRotFloat, yRotFloat, zRotFloat);
-        mainObjectModification.transform.localScale = new Vector3 (xScaleFloat, yScaleFloat, zScaleFloat);
+            mainObjectModification.transform.position = 
+                new Vector3 (shapeModifiersFloat [0], shapeModifiersFloat [1], shapeModifiersFloat [2]);
+            mainObjectModification.transform.rotation =
+                Quaternion.Euler (shapeModifiersFloat [3], shapeModifiersFloat [4], shapeModifiersFloat [5]);
+            mainObjectModification.transform.localScale = 
+                new Vector3 (shapeModifiersFloat [6], shapeModifiersFloat [7], shapeModifiersFloat [8]);
+        }
     }
 
     //starts input fields updating when user is no longer modifying shape
-    public void userStoppedModifying(){
+    public void UserStoppedModifying(){
         isUserMakingModifications = false;
     }
 
@@ -233,27 +252,25 @@ public class HUDObjectModification : MonoBehaviour
 
     //increments the input field value up by 1 and modifies the object accordingly
     public void IncrementModifier(TMP_InputField inputField){
-        userModifying();
-        // inputField.GetComponent<TMP_InputField>().text = 
-        //     (float.Parse(inputField.GetComponent<TMP_InputField>().text) + 1f).ToString();
-        inputField.text = (float.Parse(inputField.text) + 1f).ToString();    
-        updateUserModifications();
-        userStoppedModifying();
+        UserModifying();
+        inputField.text = (TestForBadInput(inputField.text) + 1f).ToString();    
+        UpdateUserModifications();
+        UserStoppedModifying();
     }
 
      //decrements the input field value down by 1 and modifies the object accordingly
      public void DecrementModifier(TMP_InputField inputField){
-        userModifying();
-        // inputField.GetComponent<TMP_InputField>().text = 
-        //     (float.Parse(inputField.GetComponent<TMP_InputField>().text) - 1f).ToString();
-        inputField.text = (float.Parse(inputField.text) - 1f).ToString();    
-        updateUserModifications();
-        userStoppedModifying();
+        UserModifying();
+        inputField.text = (TestForBadInput(inputField.text) - 1f).ToString();    
+        UpdateUserModifications();
+        UserStoppedModifying();
     }
 
     
-    public void setMainObjectModification(GameObject mainObject){
+    public void SetMainObjectModification(GameObject mainObject){
         mainObjectModification = mainObject;
 }
+
+
 
 }

@@ -8,13 +8,15 @@ public class ObjectRotation : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] GameObject objectController;
     [SerializeField] GameObject cameraController;
+    [SerializeField] private GameObject inputController;
+    MoveModeSettings moveModeSettings;
     ObjectSelection objectSelection;
     CameraMovement cameraMovement;
     GameObject mainObjectRotation;
     Quaternion currentObjRotation;
     float rotationSpeed = 100;
     float currentForwardRotation;
-    public bool toggleRotation;
+    bool toggleRotation;
     
     
     
@@ -23,30 +25,26 @@ public class ObjectRotation : MonoBehaviour
         mainCamera = Camera.main;
         objectSelection = objectController.GetComponent<ObjectSelection>();
         cameraMovement = cameraController.GetComponent<CameraMovement>();
+        moveModeSettings = inputController.GetComponent<MoveModeSettings>();
+    }
+
+    public GameObject setMainObjectRotation(GameObject mainObject){
+        return mainObjectRotation = mainObject;
+    }
+
+    public bool getToggleRotation(){
+        return toggleRotation;
     }
 
     //toggles object rotation mode
-    public void ToggleRotation(){
-        if (objectSelection.isSelectedObject == true){
-                toggleRotation = !toggleRotation;
-                if (toggleRotation == true){
-                    cameraMovement.CameraMoveOff();
-                }
-        } 
-    }
-
-   //turns off object rotation mode
-    public void ToggleRotationOff(){
-        if (objectSelection.isSelectedObject == true){
-                toggleRotation = false;
-        } 
-    }
-
-    //turns on object rotation mode
-    public void ToggleRotationOn(){
-        if (objectSelection.isSelectedObject == true){
-                toggleRotation = true;
-        } 
+    public void ObjectRotateOn(){
+        if (objectSelection.isSelectedObject 
+            && moveModeSettings.getMoveMode() != moveModeSettings.getMoveModeArray()[2]){
+                    moveModeSettings.setMoveMode(moveModeSettings.getMoveModeArray()[2]);
+        }
+        else{
+            moveModeSettings.revertToCameraMode();
+        }
     }
 
     //rotate the object around the vertical axis clockwise
@@ -97,10 +95,5 @@ public class ObjectRotation : MonoBehaviour
         currentObjRotation = mainObjectRotation.transform.rotation;
         mainObjectRotation.transform.rotation = 
             Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, -mainCamera.transform.right) * currentObjRotation;
-    }
-
-
-    public GameObject setMainObjectRotation(GameObject mainObject){
-        return mainObjectRotation = mainObject;
     }
 }

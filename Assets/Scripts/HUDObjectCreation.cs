@@ -9,6 +9,8 @@ public class HUDObjectCreation : MonoBehaviour
     [SerializeField] GameObject shapeChoice;
     [SerializeField] GameObject cameraController;
     [SerializeField] GameObject objectController;
+    [SerializeField] GameObject inputController;
+    MoveModeSettings moveModeSettings;
     ObjectSelection objectSelection;
     CameraMovement cameraMovement;
     TMP_Dropdown tmp_Dropdown;
@@ -21,7 +23,7 @@ public class HUDObjectCreation : MonoBehaviour
         tmp_Dropdown = shapeChoice.GetComponent<TMP_Dropdown>();
         objectSelection = objectController.GetComponent<ObjectSelection>();
         cameraMovement = cameraController.GetComponent<CameraMovement>();
-        
+        moveModeSettings = inputController.GetComponent<MoveModeSettings>();
     }
 
     //creates a shape, instantiates it into the environment, and selects it
@@ -53,10 +55,9 @@ public class HUDObjectCreation : MonoBehaviour
         }
         createdObjectList.Add(createdObject);
         createdObjectID = createdObjectList.IndexOf(createdObjectList [^1]);
-        createdObject.name = "Object" + createdObjectID;
+        createdObject.name = "Object" + createdObjectID + " (" + objectType +")";
         objectSelection.DeselectObjectForReselection();
         objectSelection.SelectObject(createdObject);
-        cameraMovement.CameraMoveOff();
         EventSystem.current.SetSelectedGameObject(null);
     }
 

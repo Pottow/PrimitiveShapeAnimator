@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour
 {
-    
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float verticalCamSpeed;
     [SerializeField] private float horizontalCamSpeed;
@@ -15,7 +14,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float rotationAlongY;
     [SerializeField] private float sensitivity;
     [SerializeField] private GameObject objectController;
-    bool cameraMoveToggle;
+    [SerializeField] private GameObject hudController;
+    [SerializeField] private GameObject inputController;
+    MoveModeSettings moveModeSettings;
     HUDObjectCreation hudObjectCreation;
     ObjectSelection objectSelection;
     Vector3 currentCamPosition;
@@ -27,8 +28,20 @@ public class CameraMovement : MonoBehaviour
     //assign the main camera
     private void Awake() {
     mainCamera = Camera.main;
-    hudObjectCreation = objectController.GetComponent<HUDObjectCreation>();
+    hudObjectCreation = hudController.GetComponent<HUDObjectCreation>();
     objectSelection = objectController.GetComponent<ObjectSelection>();
+    moveModeSettings = inputController.GetComponent<MoveModeSettings>();
+    }
+
+
+    //toggles between camera WASD movement and object WASD
+    public void CameraMoveOn(){
+        if (moveModeSettings.getMoveMode() != moveModeSettings.getMoveModeArray()[0]){
+            moveModeSettings.setMoveMode(moveModeSettings.getMoveModeArray()[0]);
+        }
+        else{
+            moveModeSettings.revertToPreviousMode();
+        }
     }
 
     //move the camera upwards
@@ -91,30 +104,4 @@ public class CameraMovement : MonoBehaviour
                                                         currentCamRotationY + rotationAlongY,
                                                         0);
     }
-
-    //toggles between camera WASD movement and object WASD
-    public void CameraMoveToggle(){
-        if (hudObjectCreation.getCreatedObjectList()?.Any() ?? false){
-           if (objectSelection.isSelectedObject == true){
-                cameraMoveToggle = !cameraMoveToggle;
-           }
-        }
-    }
-
-    //turns camera WASD movement to object WASD
-    public void CameraMoveOff(){
-        if (hudObjectCreation.getCreatedObjectList()?.Any() ?? false){
-            cameraMoveToggle = false;
-        }
-    }
-
-    //turns object WASD to camera WASD movement
-     public void CameraMoveOn(){
-            cameraMoveToggle = true;
-    }
-
-    public bool getCameraMoveToggle(){
-        return cameraMoveToggle;
-    }
-
 }

@@ -10,6 +10,8 @@ public class ObjectSelection : MonoBehaviour
     [SerializeField] private GameObject objectController;
     [SerializeField] private GameObject cameraController;
     [SerializeField] private GameObject HUDController;
+    [SerializeField] private GameObject inputController;
+    private MoveModeSettings moveModeSettings;
     private ObjectMovement objectMovement;
     private ObjectRotation objectRotation;
     private CameraMovement cameraMovement;
@@ -29,19 +31,23 @@ public class ObjectSelection : MonoBehaviour
         objectRotation = objectController.GetComponent<ObjectRotation>();
         cameraMovement = cameraController.GetComponent<CameraMovement>();
         hudObjectModification = HUDController.GetComponent<HUDObjectModification>();
+        moveModeSettings = inputController.GetComponent<MoveModeSettings>();
     }
     
     //on click, check whether an object, the gui, or the void has been clicked and respond
     public void ClickObject(){
         rayOrigin = mainCamera.ScreenPointToRay(Input.mousePosition); 
         if (Physics.Raycast (rayOrigin, out hit, 100)){
+            Debug.Log("Hit");
             objectClicked = hit.transform.gameObject;
             if (!EventSystem.current.IsPointerOverGameObject()){
+                Debug.Log("hit not hud");
                 DeselectObjectForReselection();
                 SelectObject(objectClicked);
             }
         }
         else if (!EventSystem.current.IsPointerOverGameObject()){
+            Debug.Log("no hit");
             DeselectObject();
         }
     }
@@ -57,8 +63,12 @@ public class ObjectSelection : MonoBehaviour
         HighlightSelectedObject(selectedObject);
         objectMovement.setMainObjectMovement(selectedObject);
         objectRotation.setMainObjectRotation(selectedObject);
-        cameraMovement.CameraMoveOff();
+        if (moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[0]){
+        moveModeSettings.revertToPreviousMode();
+        }
+        // moveModeSettings.setMoveMode(moveModeSettings.getMoveModeArray()[1]);
         hudObjectModification.ShowModifiers();
+        hudObjectModification.UpdateOnObjectMove();
         isSelectedObject = true;
 
         previousSelectedObject = selectedObject;
@@ -83,6 +93,6 @@ public class ObjectSelection : MonoBehaviour
     public void DeselectObject(){
         DeselectObjectForReselection();
         hudObjectModification.HideModifiers();
-        cameraMovement.CameraMoveOn();
+        moveModeSettings.setMoveMode(moveModeSettings.getMoveModeArray()[0]);
     }
 }

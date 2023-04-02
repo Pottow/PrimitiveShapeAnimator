@@ -6,12 +6,13 @@ public class ObjectDeletion : MonoBehaviour
 {
     private GameObject mainObjectDeletion;
     [SerializeField] GameObject objectController;
+    [SerializeField] GameObject hudController;
     ObjectSelection objectSelection;
     HUDObjectCreation hudObjectCreation;
 
     public void Awake(){
         objectSelection = objectController.GetComponent<ObjectSelection>();
-        hudObjectCreation = objectController.GetComponent<HUDObjectCreation>();
+        hudObjectCreation = hudController.GetComponent<HUDObjectCreation>();
     }
 
 

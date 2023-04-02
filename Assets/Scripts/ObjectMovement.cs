@@ -7,6 +7,10 @@ public class ObjectMovement : MonoBehaviour
 {
     
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject inputController;
+    [SerializeField] private GameObject objectController;
+    ObjectSelection objectSelection;
+    MoveModeSettings moveModeSettings;
     GameObject mainObjectMovement;
     Vector3 currentObjPosition;
     float verticalObjSpeed = 4f;
@@ -15,6 +19,22 @@ public class ObjectMovement : MonoBehaviour
     //assign the main camera
     private void Awake() {
     mainCamera = Camera.main;
+    moveModeSettings = inputController.GetComponent<MoveModeSettings>();
+    objectSelection = objectController.GetComponent<ObjectSelection>();
+    }
+
+    public GameObject setMainObjectMovement(GameObject mainObject){
+        return mainObjectMovement = mainObject;
+    }
+
+    public void ObjectMoveOn(){
+        if (objectSelection.isSelectedObject  
+            && moveModeSettings.getMoveMode() != moveModeSettings.getMoveModeArray()[1]){
+                    moveModeSettings.setMoveMode(moveModeSettings.getMoveModeArray()[1]);
+        }
+        else{
+            moveModeSettings.revertToCameraMode();
+        }
     }
 
     //move the object upwards
@@ -58,9 +78,4 @@ public class ObjectMovement : MonoBehaviour
         currentObjPosition = mainObjectMovement.transform.position;
         mainObjectMovement.transform.position -=  mainCamera.transform.forward * horizontalObjSpeed * Time.deltaTime;
     }
-
-    public GameObject setMainObjectMovement(GameObject mainObject){
-        return mainObjectMovement = mainObject;
-    }
-
 }
