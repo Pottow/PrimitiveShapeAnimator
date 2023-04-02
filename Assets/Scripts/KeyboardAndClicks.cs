@@ -12,6 +12,7 @@ public class KeyboardAndClicks : MonoBehaviour
     private CameraMovement cameraMovement;
     private ObjectRotation objectRotation;
     private ObjectMovement objectMovement;
+    private ObjectScale objectScale;
     private ObjectSelection objectSelection;
     private ObjectDeletion objectDeletion;
     private MoveModeSettings moveModeSettings;
@@ -21,6 +22,7 @@ public class KeyboardAndClicks : MonoBehaviour
         cameraMovement = cameraController.GetComponent<CameraMovement>();
         objectRotation = objectController.GetComponent<ObjectRotation>();
         objectMovement = objectController.GetComponent<ObjectMovement>();
+        objectScale = objectController.GetComponent<ObjectScale>();
         objectSelection = objectController.GetComponent<ObjectSelection>();
         objectDeletion = objectController.GetComponent<ObjectDeletion>();
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
@@ -141,63 +143,46 @@ public class KeyboardAndClicks : MonoBehaviour
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
         }
-
-        //update HUD with shapeModifier values upon end of keyboard repositioning
-        // if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[2]){ 
-        //     if (Input.GetKeyUp(KeyCode.E))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.Q))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.W))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.A))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.S))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.D))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        // }
-        // if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[1]){
-        //     if (Input.GetKeyUp(KeyCode.E))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.Q))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.W))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.A))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.S))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        //     if (Input.GetKeyUp(KeyCode.D))
-        //     {
-        //         hudObjectModification.updateOnObjectMove();
-        //     }
-        // }
-
-
-        
+        //object keyboard scale controls
+        if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[3]){
+            if (Input.GetKey(KeyCode.E))
+            {   
+                KeyCode keypressed = KeyCode.E;
+                objectScale.ScaleUp();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+            if (Input.GetKey(KeyCode.Q))
+            {
+                KeyCode keypressed = KeyCode.Q;
+                objectScale.ScaleDown();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                KeyCode keypressed = KeyCode.W;
+                objectScale.ScaleForward();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                KeyCode keypressed = KeyCode.A;
+                objectScale.ScaleLeft();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                KeyCode keypressed = KeyCode.S;
+                objectScale.ScaleBackward();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                KeyCode keypressed = KeyCode.D;
+                objectScale.ScaleRight();
+                hudObjectModification.UpdateOnObjectMove(keypressed);
+            }
+        }
+   
 
         //keyboard object manipulation controls
            if (Input.GetKeyDown(KeyCode.Space))
@@ -215,6 +200,10 @@ public class KeyboardAndClicks : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             objectMovement.ObjectMoveOn();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            objectScale.ObjectScaleOn();
         }
 
 

@@ -21,7 +21,7 @@ public class MoveModeSettings : MonoBehaviour
         cameraMovement = cameraController.GetComponent<CameraMovement>();
         objectRotation = objectController.GetComponent<ObjectRotation>();
         textMeshProUGUI = moveModeType.GetComponent<TextMeshProUGUI>();
-        moveModeArray = new string [] {"Camera", "Move Object", "Rotate Object"};
+        moveModeArray = new string [] {"Camera", "Move Object", "Rotate Object", "Scale Object"};
     }
 
 

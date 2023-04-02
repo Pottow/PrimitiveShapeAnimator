@@ -18490,6 +18490,7 @@ GameObject:
   - component: {fileID: 2074665904}
   - component: {fileID: 2074665903}
   - component: {fileID: 2074665902}
+  - component: {fileID: 2074665907}
   m_Layer: 0
   m_Name: ObjectController
   m_TagString: Untagged
@@ -18577,6 +18578,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectController: {fileID: 2074665900}
   hudController: {fileID: 1560267316}
+--- !u!114 &2074665907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cb68fa6bf474c44b703e9cbca46cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194227}
+  inputController: {fileID: 764097641}
+  objectController: {fileID: 2074665900}
 --- !u!1 &2099222880
 GameObject:
   m_ObjectHideFlags: 0

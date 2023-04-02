@@ -14,6 +14,7 @@ public class ObjectSelection : MonoBehaviour
     private MoveModeSettings moveModeSettings;
     private ObjectMovement objectMovement;
     private ObjectRotation objectRotation;
+    private ObjectScale objectScale;
     private CameraMovement cameraMovement;
     private HUDObjectModification hudObjectModification;
 
@@ -29,6 +30,7 @@ public class ObjectSelection : MonoBehaviour
         mainCamera = Camera.main;
         objectMovement = objectController.GetComponent<ObjectMovement>();
         objectRotation = objectController.GetComponent<ObjectRotation>();
+        objectScale = objectController.GetComponent<ObjectScale>();
         cameraMovement = cameraController.GetComponent<CameraMovement>();
         hudObjectModification = HUDController.GetComponent<HUDObjectModification>();
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
@@ -38,16 +40,13 @@ public class ObjectSelection : MonoBehaviour
     public void ClickObject(){
         rayOrigin = mainCamera.ScreenPointToRay(Input.mousePosition); 
         if (Physics.Raycast (rayOrigin, out hit, 100)){
-            Debug.Log("Hit");
             objectClicked = hit.transform.gameObject;
             if (!EventSystem.current.IsPointerOverGameObject()){
-                Debug.Log("hit not hud");
                 DeselectObjectForReselection();
                 SelectObject(objectClicked);
             }
         }
         else if (!EventSystem.current.IsPointerOverGameObject()){
-            Debug.Log("no hit");
             DeselectObject();
         }
     }
@@ -63,6 +62,7 @@ public class ObjectSelection : MonoBehaviour
         HighlightSelectedObject(selectedObject);
         objectMovement.setMainObjectMovement(selectedObject);
         objectRotation.setMainObjectRotation(selectedObject);
+        objectScale.setMainObjectScale(selectedObject);
         if (moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[0]){
         moveModeSettings.revertToPreviousMode();
         }
