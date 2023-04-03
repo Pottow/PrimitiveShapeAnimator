@@ -63,13 +63,9 @@ public class HUDObjectModification : MonoBehaviour
     float yScaleFloat;
     float zScaleFloat;
 
-    float [] posFloats;
-    float [] rotFloats;
-    float [] sclaeFloats;
-
-    Vector3 mainObjectModificationPos;
-    Quaternion mainObjectModificationRot;
-    Vector3 mainObjectModificationScale;
+    public Vector3 mainObjectModificationPos;
+    public Quaternion mainObjectModificationRot;
+    public Vector3 mainObjectModificationScale;
     public bool isUserMakingModifications;
 
     // locates shape modifying input fields and the shape modifying tab
@@ -140,7 +136,7 @@ public class HUDObjectModification : MonoBehaviour
 
     public void UpdateOnObjectMove(KeyCode keypressed){
         if (mainObjectModification != null && isUserMakingModifications == false){
-
+            
             if (keypressed == KeyCode.A || keypressed == KeyCode.D){
                 xPos.GetComponent<TMP_InputField>().text = mainObjectModification.transform.position.x.ToString();
                 CleanXRotationForUpdateOnObjectMove();

@@ -5338,6 +5338,7 @@ GameObject:
   - component: {fileID: 764097642}
   - component: {fileID: 764097644}
   - component: {fileID: 764097643}
+  - component: {fileID: 764097645}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -5394,6 +5395,18 @@ MonoBehaviour:
   objectController: {fileID: 2074665900}
   inputController: {fileID: 764097641}
   hudController: {fileID: 1560267316}
+--- !u!114 &764097645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764097641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763d35cb93fce944bbf5955c21a26a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &797461931
 GameObject:
   m_ObjectHideFlags: 0
@@ -14443,7 +14456,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1560267318}
         m_TargetAssemblyTypeName: HUDObjectCreation, Assembly-CSharp
-        m_MethodName: CreateObject
+        m_MethodName: GetObjectTypeThenCreateObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14672,6 +14685,9 @@ MonoBehaviour:
   xScale: {fileID: 117153059}
   yScale: {fileID: 689253623}
   zScale: {fileID: 1107081497}
+  mainObjectModificationPos: {x: 0, y: 0, z: 0}
+  mainObjectModificationRot: {x: 0, y: 0, z: 0, w: 0}
+  mainObjectModificationScale: {x: 0, y: 0, z: 0}
   isUserMakingModifications: 0
 --- !u!1 &1597141844
 GameObject:
@@ -18491,6 +18507,7 @@ GameObject:
   - component: {fileID: 2074665903}
   - component: {fileID: 2074665902}
   - component: {fileID: 2074665907}
+  - component: {fileID: 2074665908}
   m_Layer: 0
   m_Name: ObjectController
   m_TagString: Untagged
@@ -18593,6 +18610,20 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   inputController: {fileID: 764097641}
   objectController: {fileID: 2074665900}
+--- !u!114 &2074665908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074665900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31d6b4140fbead4389177d934f0b632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectController: {fileID: 2074665900}
+  hudController: {fileID: 1560267316}
 --- !u!1 &2099222880
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,10 +26,14 @@ public class HUDObjectCreation : MonoBehaviour
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
     }
 
-    //creates a shape, instantiates it into the environment, and selects it
-    public void CreateObject(){
+    public void GetObjectTypeThenCreateObject(){
         objectType = tmp_Dropdown.options 
-                    [tmp_Dropdown.value].text;
+            [tmp_Dropdown.value].text;
+        CreateObject(objectType);
+    }
+
+    //creates a shape, instantiates it into the environment, and selects it
+    public void CreateObject(string objectType){
         switch (objectType){
             case "Cube":
                 createdObject = CreateCube();
@@ -64,34 +68,34 @@ public class HUDObjectCreation : MonoBehaviour
     //creates a specific shape: cube, sphere, etc.
     GameObject CreateCube() {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = new Vector3(0, 0, 0);
+        // cube.transform.position = new Vector3(0, 0, 0);
         return cube;
     }
     GameObject CreateSphere() {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = new Vector3(0, 0, 0);
+        // sphere.transform.position = new Vector3(0, 0, 0);
         return sphere;
     }
     GameObject CreateCapsule() {
         GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        capsule.transform.position = new Vector3(0, 0, 0);
+        // capsule.transform.position = new Vector3(0, 0, 0);
         return capsule;
     }
     GameObject CreateCylinder() {
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        cylinder.transform.position = new Vector3(0, 0, 0);
+        // cylinder.transform.position = new Vector3(0, 0, 0);
         return cylinder;
     }
 
     GameObject CreatePlane(){
         GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        plane.transform.position = new Vector3(0, 0, 0);
+        // plane.transform.position = new Vector3(0, 0, 0);
         return plane;
     }
 
     GameObject CreateQuad(){
         GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        quad.transform.position = new Vector3(0, 0, 0);
+        // quad.transform.position = new Vector3(0, 0, 0);
         return quad;
     }
 

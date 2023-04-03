@@ -8,14 +8,16 @@ public class KeyboardAndClicks : MonoBehaviour
     [SerializeField] private GameObject objectController;
     [SerializeField] private GameObject inputController;
     [SerializeField] private GameObject hudController;
-    HUDObjectModification hudObjectModification;
+    private HUDObjectModification hudObjectModification;
     private CameraMovement cameraMovement;
     private ObjectRotation objectRotation;
     private ObjectMovement objectMovement;
     private ObjectScale objectScale;
     private ObjectSelection objectSelection;
     private ObjectDeletion objectDeletion;
+    private ObjectDuplication objectDuplication;
     private MoveModeSettings moveModeSettings;
+    private DefaultKeyBindings defaultKeyBindings;
 
 
     private void Awake() {
@@ -25,7 +27,9 @@ public class KeyboardAndClicks : MonoBehaviour
         objectScale = objectController.GetComponent<ObjectScale>();
         objectSelection = objectController.GetComponent<ObjectSelection>();
         objectDeletion = objectController.GetComponent<ObjectDeletion>();
+        objectDuplication = objectController.GetComponent<ObjectDuplication>();
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
+        defaultKeyBindings = inputController.GetComponent<DefaultKeyBindings>();
         hudObjectModification = hudController.GetComponent<HUDObjectModification>();
     }
   
@@ -36,30 +40,30 @@ public class KeyboardAndClicks : MonoBehaviour
         //camera keyboard movement controls
         if (moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[0]){
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(defaultKeyBindings.Up))
             {
                 cameraMovement.MoveUp();
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(defaultKeyBindings.Down))
             {
                 cameraMovement.MoveDown();
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(defaultKeyBindings.Forward))
             {
                 cameraMovement.MoveForward();
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(defaultKeyBindings.Left))
             {
                 cameraMovement.MoveLeft();
             }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(defaultKeyBindings.Back))
             {
                 cameraMovement.MoveBackward();
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(defaultKeyBindings.Right))
             {
                 cameraMovement.MoveRight();
             }
@@ -67,117 +71,117 @@ public class KeyboardAndClicks : MonoBehaviour
 
        //object keyboard rotation controls
         if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[2]){ 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(defaultKeyBindings.Up))
             {
-                KeyCode keypressed = KeyCode.E;
+                KeyCode keypressed = defaultKeyBindings.Up;
                 objectRotation.RotateAroundUpAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(defaultKeyBindings.Down))
             {
-                KeyCode keypressed = KeyCode.Q;
+                KeyCode keypressed = defaultKeyBindings.Down;
                 objectRotation.RotateAroundDownAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(defaultKeyBindings.Forward))
             {
-                KeyCode keypressed = KeyCode.W;
+                KeyCode keypressed = defaultKeyBindings.Forward;
                 objectRotation.RotateAroundForwardAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(defaultKeyBindings.Left))
             {
-                KeyCode keypressed = KeyCode.A;
+                KeyCode keypressed = defaultKeyBindings.Left;
                 objectRotation.RotateAroundLeftAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(defaultKeyBindings.Back))
             {
-                KeyCode keypressed = KeyCode.S;
+                KeyCode keypressed = defaultKeyBindings.Back;
                 objectRotation.RotateAroundBackwardAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(defaultKeyBindings.Right))
             {
-                KeyCode keypressed = KeyCode.D;
+                KeyCode keypressed = defaultKeyBindings.Right;
                 objectRotation.RotateAroundRightAxis();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
         }
         //object keyboard movemement controls
         if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[1]){
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(defaultKeyBindings.Up))
             {   
-                KeyCode keypressed = KeyCode.E;
+                KeyCode keypressed = defaultKeyBindings.Up;
                 objectMovement.MoveUp();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(defaultKeyBindings.Down))
             {
-                KeyCode keypressed = KeyCode.Q;
+                KeyCode keypressed = defaultKeyBindings.Down;
                 objectMovement.MoveDown();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(defaultKeyBindings.Forward))
             {
-                KeyCode keypressed = KeyCode.W;
+                KeyCode keypressed = defaultKeyBindings.Forward;
                 objectMovement.MoveForward();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(defaultKeyBindings.Left))
             {
-                KeyCode keypressed = KeyCode.A;
+                KeyCode keypressed = defaultKeyBindings.Left;
                 objectMovement.MoveLeft();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(defaultKeyBindings.Back))
             {
-                KeyCode keypressed = KeyCode.S;
+                KeyCode keypressed = defaultKeyBindings.Back;
                 objectMovement.MoveBackward();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(defaultKeyBindings.Right))
             {
-                KeyCode keypressed = KeyCode.D;
+                KeyCode keypressed = defaultKeyBindings.Right;
                 objectMovement.MoveRight();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
         }
         //object keyboard scale controls
         if(moveModeSettings.getMoveMode() == moveModeSettings.getMoveModeArray()[3]){
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(defaultKeyBindings.Up))
             {   
-                KeyCode keypressed = KeyCode.E;
+                KeyCode keypressed = defaultKeyBindings.Up;
                 objectScale.ScaleUp();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(defaultKeyBindings.Down))
             {
-                KeyCode keypressed = KeyCode.Q;
+                KeyCode keypressed = defaultKeyBindings.Down;
                 objectScale.ScaleDown();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(defaultKeyBindings.Forward))
             {
-                KeyCode keypressed = KeyCode.W;
+                KeyCode keypressed = defaultKeyBindings.Forward;
                 objectScale.ScaleForward();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(defaultKeyBindings.Left))
             {
-                KeyCode keypressed = KeyCode.A;
+                KeyCode keypressed = defaultKeyBindings.Left;
                 objectScale.ScaleLeft();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(defaultKeyBindings.Back))
             {
-                KeyCode keypressed = KeyCode.S;
+                KeyCode keypressed = defaultKeyBindings.Back;
                 objectScale.ScaleBackward();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(defaultKeyBindings.Right))
             {
-                KeyCode keypressed = KeyCode.D;
+                KeyCode keypressed = defaultKeyBindings.Right;
                 objectScale.ScaleRight();
                 hudObjectModification.UpdateOnObjectMove(keypressed);
             }
@@ -185,28 +189,37 @@ public class KeyboardAndClicks : MonoBehaviour
    
 
         //keyboard object manipulation controls
-           if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(defaultKeyBindings.Deselect))
         {
             objectSelection.DeselectObject();
         }
-           if (Input.GetKeyDown(KeyCode.Delete))
+        if (Input.GetKeyDown(defaultKeyBindings.Delete))
         {
             objectDeletion.DeleteObject();
         }
-          if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(defaultKeyBindings.RotateMode))
         {
             objectRotation.ObjectRotateOn();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(defaultKeyBindings.MoveMode))
         {
             objectMovement.ObjectMoveOn();
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(defaultKeyBindings.ScaleMode))
         {
             objectScale.ObjectScaleOn();
         }
 
 
+
+        //combos
+        if (Input.GetKey(defaultKeyBindings.ComboKey))
+        {
+            if (Input.GetKeyDown(defaultKeyBindings.Duplicate)){
+                objectDuplication.DuplicateObject();
+            }
+        }
+            
 
         //mouse object manipulation controls
         if (Input.GetMouseButtonDown(0)){
@@ -215,7 +228,7 @@ public class KeyboardAndClicks : MonoBehaviour
 
 
         //camera manipulation controls
-          if (Input.GetKeyDown(KeyCode.C))
+          if (Input.GetKeyDown(defaultKeyBindings.CameraMode))
         {
             cameraMovement.CameraMoveOn();
         }
@@ -230,7 +243,7 @@ public class KeyboardAndClicks : MonoBehaviour
         }
 
         //software controls
-         if (Input.GetKeyDown(KeyCode.Escape)){
+         if (Input.GetKeyDown(defaultKeyBindings.Quit)){
             Application.Quit();
         }
     }
