@@ -8,6 +8,8 @@ public class KeyboardAndClicks : MonoBehaviour
     [SerializeField] private GameObject objectController;
     [SerializeField] private GameObject inputController;
     [SerializeField] private GameObject hudController;
+    [SerializeField] private GameObject saveAndLoadController;
+    private SaveEnvironment saveEnvironment;
     private HUDObjectModification hudObjectModification;
     private CameraMovement cameraMovement;
     private ObjectRotation objectRotation;
@@ -31,6 +33,7 @@ public class KeyboardAndClicks : MonoBehaviour
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
         defaultKeyBindings = inputController.GetComponent<DefaultKeyBindings>();
         hudObjectModification = hudController.GetComponent<HUDObjectModification>();
+        saveEnvironment = saveAndLoadController.GetComponent<SaveEnvironment>();
     }
   
   //listens for keyboard presses and mouse clicks, for user input controls
@@ -217,6 +220,9 @@ public class KeyboardAndClicks : MonoBehaviour
         {
             if (Input.GetKeyDown(defaultKeyBindings.Duplicate)){
                 objectDuplication.DuplicateObject();
+            }
+              if (Input.GetKeyDown(defaultKeyBindings.Save)){
+                saveEnvironment.SaveObjectPositions();
             }
         }
             

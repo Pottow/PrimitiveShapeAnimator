@@ -9,7 +9,7 @@ public class ObjectSelection : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject objectController;
     [SerializeField] private GameObject cameraController;
-    [SerializeField] private GameObject HUDController;
+    [SerializeField] private GameObject hudController;
     [SerializeField] private GameObject inputController;
     private MoveModeSettings moveModeSettings;
     private ObjectMovement objectMovement;
@@ -32,7 +32,7 @@ public class ObjectSelection : MonoBehaviour
         objectRotation = objectController.GetComponent<ObjectRotation>();
         objectScale = objectController.GetComponent<ObjectScale>();
         cameraMovement = cameraController.GetComponent<CameraMovement>();
-        hudObjectModification = HUDController.GetComponent<HUDObjectModification>();
+        hudObjectModification = hudController.GetComponent<HUDObjectModification>();
         moveModeSettings = inputController.GetComponent<MoveModeSettings>();
     }
     

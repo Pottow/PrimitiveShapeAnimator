@@ -19,6 +19,7 @@ public class DefaultKeyBindings : MonoBehaviour
     KeyCode quit = KeyCode.Escape;
     KeyCode comboKey = KeyCode.LeftControl;
     KeyCode duplicate = KeyCode.D; 
+    KeyCode save = KeyCode.S;
 
     public KeyCode Up { get => up; set => up = value; }
     public KeyCode Down { get => down; set => down = value; }
@@ -35,4 +36,5 @@ public class DefaultKeyBindings : MonoBehaviour
     public KeyCode Quit { get => quit; set => quit = value; }
     public KeyCode ComboKey { get => comboKey; set => comboKey = value; }
     public KeyCode Duplicate { get => duplicate; set => duplicate = value; }
+    public KeyCode Save { get => save; set => save = value; }
 }
