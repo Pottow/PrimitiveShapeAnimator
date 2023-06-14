@@ -17,6 +17,7 @@ public class HUDObjectCreation : MonoBehaviour
     GameObject createdObject;
     string objectType;
     private List<GameObject> createdObjectList = new List<GameObject>();
+    private List<string> createdObjectTypeList = new List<string>();
     int createdObjectID;
 
     private void Awake() {
@@ -58,6 +59,7 @@ public class HUDObjectCreation : MonoBehaviour
                 break;
         }
         createdObjectList.Add(createdObject);
+        createdObjectTypeList.Add(objectType);
         createdObjectID = createdObjectList.IndexOf(createdObjectList [^1]);
         createdObject.name = "Object" + createdObjectID + " (" + objectType +")";
         objectSelection.DeselectObjectForReselection();
@@ -102,5 +104,9 @@ public class HUDObjectCreation : MonoBehaviour
 
     public List<GameObject> getCreatedObjectList(){
         return createdObjectList;
+    }
+
+    public List<string> getCreatedObjectTypeList(){
+        return createdObjectTypeList;
     }
 }

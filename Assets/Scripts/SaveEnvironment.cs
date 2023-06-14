@@ -5,14 +5,15 @@ using System.IO;
 
 public class SaveEnvironment : MonoBehaviour
 {
-
     [SerializeField] GameObject hudController;
     Camera mainCamera;
     HUDObjectCreation hudObjectCreation;
 
     List<GameObject> objectList;
+    List<string> objectTypeList;
     
     int objectIndex;
+    string objectType;
     float posX;
     float posY;
     float posZ;
@@ -26,8 +27,10 @@ public class SaveEnvironment : MonoBehaviour
     float scaleZ;
 
     string savePath;
+    string [] singleObjectStrings;
     float []  singleObjectData;
     List <float[]> objectData;
+    List <string[]> objectStrings;
     StreamWriter writer;
 
     
@@ -40,10 +43,12 @@ public class SaveEnvironment : MonoBehaviour
 
     public void SaveObjectPositions(){
         objectList = hudObjectCreation.getCreatedObjectList();
+        objectTypeList = hudObjectCreation.getCreatedObjectTypeList();
         objectIndex = 0;
         foreach (var objects in objectList)
-        {
-            
+        {         
+            objectType = objectTypeList [objectIndex];
+
             posX = objects.transform.position.x;
             posY = objects.transform.position.y;
             posZ = objects.transform.position.z;
@@ -56,7 +61,13 @@ public class SaveEnvironment : MonoBehaviour
             scaleY = objects.transform.localScale.y;
             scaleZ = objects.transform.localScale.z;
 
-            singleObjectData = new float [] {objectIndex, posX, posY, posZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ};
+            singleObjectStrings = new string [] {objectType};
+
+            singleObjectData = new float [] {objectIndex,
+                                            posX, posY, posZ, 
+                                            rotX, rotY, rotZ, 
+                                            scaleX, scaleY, scaleZ};
+            objectStrings.Add(singleObjectStrings);                               
             objectData.Add(singleObjectData);
             objectIndex = objectIndex + 1;
         }
@@ -69,11 +80,14 @@ public class SaveEnvironment : MonoBehaviour
                 savePath = Application.persistentDataPath + "/saveFile" + x + ".txt";
                 if (!File.Exists(savePath)){
                     writer = new StreamWriter(savePath, true);
+                    int i = 0;
                     foreach (float [] singleObject in objectData){
                         foreach (float objectDatum in singleObject){
+                            writer.Write(singleObjectStrings [i] + ",");
                             writer.Write(objectDatum + ",");
                         }
                         writer.WriteLine();
+                        i++;
                     }
                     writer.Close();
                     break;

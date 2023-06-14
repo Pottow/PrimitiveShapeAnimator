@@ -267,6 +267,12 @@ public class HUDObjectModification : MonoBehaviour
         mainObjectModification = mainObject;
 }
 
+    public void SetTmpInputFieldStrings(float [] inputFieldValues){
+        for (int x = 0; x < tmp_InputFields.Length; x++){
+            tmp_InputFields[x].text =  inputFieldValues [x].ToString();
+        }
+    }
+
 
 
 }

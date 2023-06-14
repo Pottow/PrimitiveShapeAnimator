@@ -9,6 +9,7 @@ public class ObjectDeletion : MonoBehaviour
     [SerializeField] GameObject hudController;
     ObjectSelection objectSelection;
     HUDObjectCreation hudObjectCreation;
+    int indexOfDeletedObject;
 
     public void Awake(){
         objectSelection = objectController.GetComponent<ObjectSelection>();
@@ -16,17 +17,19 @@ public class ObjectDeletion : MonoBehaviour
     }
 
 
-    //removes the selected object
+    //removes the selected object 
     public void DeleteObject(){
         if (objectSelection.isSelectedObject == true){
            
+            indexOfDeletedObject = hudObjectCreation.getCreatedObjectList().FindIndex
+                (GameObject => GameObject.name == objectSelection.selectedObject.name);
             hudObjectCreation.getCreatedObjectList().RemoveAll 
                 (GameObject => GameObject.name == objectSelection.selectedObject.name);
 
+            hudObjectCreation.getCreatedObjectTypeList().RemoveAt(indexOfDeletedObject);
+
             objectSelection.DeselectObject();
             Destroy(objectSelection.selectedObject);
-            
-
         }
     }
 
