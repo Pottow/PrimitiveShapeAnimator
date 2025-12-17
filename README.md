@@ -4,11 +4,11 @@ A prototype tool for manipulating objects in 3D space, to be used for CAD and en
 
 Rather than moving objects relative to an arbitrary world axis, you inhabit the objects directly and move them using standard WASD controls relative to the camera. You can change between move/rotate/scale modes using keyboard shortcuts.
 
-#Limitations:
+# Limitations:
 
 Curently there is no saving or export mechanic in place. At the moment this prototype only works as a 3D visualisation tool.
 
-#Controls:
+# Controls:
 
 Movement Controls:  
 W - move forward  
